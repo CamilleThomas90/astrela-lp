@@ -1,750 +1,679 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; -webkit-text-stroke: #000000; background-color: #ffffff}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; -webkit-text-stroke: #000000; background-color: #ffffff; min-height: 15.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0f0f0f; -webkit-text-stroke: #0f0f0f; background-color: #f6f6f4; min-height: 15.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astrela — Sécurisez vos marges industrielles dès la signature</title>
+<meta name="description" content="Bloquez le coût de vos matières premières et composants à la signature de vos contrats. Couverture par prime fixe, sans appel de marge, accessible aux PME et ETI industrielles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1E9;
+  --paper-2:#EBE6D9;
+  --card:#FBFAF6;
+  --ink:#15171A;
+  --ink-soft:#4C5258;
+  --steel:#1F405A;
+  --steel-deep:#142A3C;
+  --copper:#BC5631;
+  --copper-soft:#D98A5E;
+  --gain:#3B6A50;
+  --line:rgba(21,23,26,.13);
+  --line-strong:rgba(21,23,26,.28);
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:18px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3,.eyebrow,.btn,.nav,th,.stat-num,.tag{font-family:var(--display)}
+.mono{font-family:var(--mono)}
+.eyebrow{
+  font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--copper);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--copper)}
+a{color:inherit}
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;max-width:1180px;margin:0 auto;
+  backdrop-filter:saturate(1.1) blur(6px);
+}
+.nav-bar{position:sticky;top:0;z-index:100;border-bottom:1px solid transparent;transition:.3s}
+.nav-bar.scrolled{background:rgba(244,241,233,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px;letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;position:relative;flex:0 0 auto}
+.logo-mark svg{display:block}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:500;font-family:var(--display)}
+.nav-links a{text-decoration:none;color:var(--ink-soft);transition:.2s}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:none;
+  font-size:15px;font-weight:700;letter-spacing:.01em;text-decoration:none;
+  padding:13px 22px;border-radius:2px;transition:.2s;line-height:1;
+}
+.btn-primary{background:var(--copper);color:#fff;box-shadow:3px 3px 0 var(--steel-deep)}
+.btn-primary:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--steel-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-arrow{transition:.2s}
+.btn:hover .btn-arrow{transform:translateX(3px)}
+.hero{padding:70px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero h1{
+  font-size:clamp(40px,5.4vw,68px);font-weight:800;line-height:1.02;letter-spacing:-.025em;
+  margin:22px 0 0;
+}
+.hero h1 .em{color:var(--copper)}
+.hero .sub{font-size:21px;color:var(--ink-soft);margin:26px 0 34px;max-width:30em}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-note{font-size:13.5px;color:var(--ink-soft);font-family:var(--display);margin-top:20px;display:flex;align-items:center;gap:8px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gain);box-shadow:0 0 0 4px rgba(59,106,80,.18)}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.49s}
+.scissor{
+  background:var(--steel-deep);border-radius:4px;padding:30px 30px 26px;color:#EAE6DC;
+  box-shadow:0 24px 60px -28px rgba(20,42,60,.7);position:relative;overflow:hidden;
+}
+.scissor::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(189,86,49,.16),transparent 55%);pointer-events:none}
+.scissor-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.scissor-head .t{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.04em}
+.scissor-head .live{font-family:var(--mono);font-size:11px;color:var(--copper-soft);display:flex;align-items:center;gap:6px}
+.scissor-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--copper-soft);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.3}}
+.chart{width:100%;height:210px;display:block}
+.chart .grid-l{stroke:rgba(255,255,255,.08);stroke-width:1}
+.chart .cost{fill:none;stroke:var(--copper-soft);stroke-width:3;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2s .5s ease forwards}
+.chart .price{fill:none;stroke:rgba(234,230,220,.65);stroke-width:2.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2s .8s ease forwards}
+.chart .squeeze{fill:rgba(189,86,49,.22);opacity:0;animation:fadein 1s 2.4s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+.scissor-legend{display:flex;gap:20px;font-family:var(--mono);font-size:11px;margin-top:12px;color:rgba(234,230,220,.8)}
+.scissor-legend span{display:flex;align-items:center;gap:7px}
+.lg-c{width:14px;height:3px;background:var(--copper-soft)}
+.lg-p{width:14px;height:3px;background:rgba(234,230,220,.65)}
+.scissor-foot{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--display);font-size:13px;color:rgba(234,230,220,.78);display:flex;justify-content:space-between;align-items:center}
+.scissor-foot b{color:#fff;font-weight:700}
+section{padding:78px 0;position:relative}
+.section-head{max-width:42em;margin-bottom:48px}
+.section-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.06;margin-top:16px}
+.section-head p{color:var(--ink-soft);font-size:19px;margin-top:16px}
+.problem{background:var(--paper-2)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pain{background:var(--paper-2);padding:30px 26px}
+.pain .n{font-family:var(--mono);font-size:13px;color:var(--copper);font-weight:700}
+.pain h3{font-size:20px;font-weight:700;margin:14px 0 10px;letter-spacing:-.01em}
+.pain p{font-size:16px;color:var(--ink-soft);line-height:1.5}
+.solution .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.solution-points{list-style:none;margin-top:26px}
+.solution-points li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.solution-points li:last-child{border-bottom:none}
+.check{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gain);display:grid;place-items:center;margin-top:2px}
+.check svg{width:14px;height:14px}
+.solution-points b{font-family:var(--display);font-weight:700;font-size:17px;display:block;margin-bottom:3px}
+.solution-points span{font-size:15.5px;color:var(--ink-soft)}
+.solution-art{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:34px;box-shadow:0 20px 50px -34px rgba(20,42,60,.5)}
+.prime-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.prime-row:last-child{border-bottom:none}
+.prime-row .l{font-family:var(--display);font-size:14px;color:var(--ink-soft);font-weight:500}
+.prime-row .v{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--steel)}
+.prime-row .v.big{font-size:28px;color:var(--copper)}
+.prime-cap{font-size:12.5px;color:var(--ink-soft);font-family:var(--display);margin-top:16px;font-style:italic}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:30px;transition:.25s;position:relative;overflow:hidden}
+.feat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--copper);transform:scaleY(0);transform-origin:top;transition:.3s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(20,42,60,.5)}
+.feat:hover::before{transform:scaleY(1)}
+.feat .ic{width:40px;height:40px;border:1.5px solid var(--steel);border-radius:3px;display:grid;place-items:center;margin-bottom:18px;color:var(--steel)}
+.feat h3{font-size:19px;font-weight:700;margin-bottom:9px;letter-spacing:-.01em}
+.feat p{font-size:16px;color:var(--ink-soft)}
+.steps{background:var(--steel-deep);color:#EAE6DC}
+.steps .eyebrow{color:var(--copper-soft)}
+.steps .eyebrow::before{background:var(--copper-soft)}
+.steps .section-head h2{color:#fff}
+.steps .section-head p{color:rgba(234,230,220,.7)}
+.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step{position:relative;padding-top:28px}
+.step .num{font-family:var(--mono);font-size:46px;font-weight:700;color:var(--copper-soft);line-height:1}
+.step h3{font-size:21px;font-weight:700;margin:16px 0 12px;color:#fff;letter-spacing:-.01em}
+.step p{font-size:16px;color:rgba(234,230,220,.74);line-height:1.55}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.12)}
+.step.active::before{background:var(--copper-soft)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:16px;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.cmp-table th,.cmp-table td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp-table thead th{font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;background:var(--paper-2)}
+.cmp-table thead th:last-child{background:var(--steel);color:#fff}
+.cmp-table td:first-child{font-family:var(--display);font-weight:600;font-size:15px;width:24%}
+.cmp-table td.us{background:rgba(189,86,49,.06);font-family:var(--body)}
+.cmp-table tr:last-child td{border-bottom:none}
+.x-mark{color:var(--copper);font-weight:700}
+.v-mark{color:var(--gain);font-weight:700}
+.whom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.whom{border:1px solid var(--line);border-radius:4px;padding:24px;background:var(--card)}
+.whom .tag{font-family:var(--mono);font-size:12px;color:var(--copper);font-weight:500}
+.whom p{font-size:15.5px;margin-top:10px;color:var(--ink-soft)}
+.trust{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust .wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.trust-stat{flex:1;min-width:200px}
+.trust-stat .stat-num{font-family:var(--display);font-size:40px;font-weight:800;color:var(--steel);letter-spacing:-.02em;line-height:1}
+.trust-stat .stat-lab{font-size:15px;color:var(--ink-soft);margin-top:8px}
+.cta-form{background:var(--steel-deep);color:#EAE6DC}
+.cta-form .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+.cta-form .eyebrow{color:var(--copper-soft)}
+.cta-form .eyebrow::before{background:var(--copper-soft)}
+.cta-form h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.06;margin-top:16px}
+.cta-form .lede{color:rgba(234,230,220,.74);font-size:18px;margin-top:18px}
+.cta-bullets{list-style:none;margin-top:26px}
+.cta-bullets li{display:flex;gap:12px;align-items:center;padding:9px 0;font-family:var(--display);font-size:15px;color:rgba(234,230,220,.9)}
+.cta-bullets li::before{content:"✓";color:var(--copper-soft);font-weight:700}
+.form-card{background:var(--card);border-radius:5px;padding:34px;color:var(--ink);box-shadow:0 30px 70px -30px rgba(0,0,0,.5)}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:7px;color:var(--ink)}
+.fg input,.fg select{
+  width:100%;padding:13px 14px;border:1px solid var(--line-strong);border-radius:3px;
+  font-family:var(--body);font-size:16px;background:var(--paper);color:var(--ink);transition:.2s;
+}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(189,86,49,.15)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.estimate{
+  background:var(--paper-2);border:1px dashed var(--copper);border-radius:3px;padding:14px 16px;margin:4px 0 20px;
+  font-family:var(--display);font-size:14px;display:none;
+}
+.estimate.show{display:block;animation:rise .4s ease}
+.estimate b{font-family:var(--mono);font-size:20px;color:var(--copper);display:block;margin:4px 0}
+.estimate .cap{font-size:11.5px;color:var(--ink-soft);font-style:normal;font-family:var(--body)}
+.form-card .btn-primary{width:100%;justify-content:center;font-size:16px;padding:16px}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--steel-deep)}
+.form-legal{font-size:12px;color:var(--ink-soft);font-family:var(--display);margin-top:14px;line-height:1.5}
+.form-success{display:none;text-align:center;padding:30px 10px}
+.form-success.show{display:block;animation:rise .5s ease}
+.form-success .ok{width:56px;height:56px;border-radius:50%;background:var(--gain);display:grid;place-items:center;margin:0 auto 18px}
+.form-success h3{font-family:var(--display);font-size:24px;font-weight:800;margin-bottom:10px}
+.form-success p{color:var(--ink-soft);font-size:16px}
+.form-error{
+  background:#fef2f2;border:1px solid #fca5a5;border-radius:3px;padding:12px 16px;
+  font-family:var(--display);font-size:14px;color:#b91c1c;margin-bottom:16px;display:none;
+}
+.form-error.show{display:block;animation:rise .3s ease}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.faq details{border-bottom:1px solid var(--line);padding:6px 0}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-family:var(--display);font-weight:600;font-size:17.5px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{color:var(--copper);font-family:var(--mono);font-size:22px;transition:.2s;flex:0 0 auto}
+.faq details[open] summary .pm{transform:rotate(45deg)}
+.faq p{color:var(--ink-soft);font-size:16px;padding:0 0 18px;max-width:42em}
+footer{background:var(--ink);color:rgba(234,230,220,.62);padding:54px 0 36px;font-family:var(--display)}
+.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-top .logo{color:#fff;font-size:20px}
+footer .disclaimer{font-size:12.5px;line-height:1.6;margin-top:24px;max-width:62em;color:rgba(234,230,220,.5)}
+footer .cr{font-size:12.5px;margin-top:22px}
+@media(max-width:880px){
+  .hero-grid,.solution .wrap,.cta-form .wrap{grid-template-columns:1fr;gap:40px}
+  .pain-grid,.step-grid,.whom-grid,.feat-grid,.faq-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero{padding:48px 0 60px}
+  section{padding:58px 0}
+  .cmp-table{font-size:14px}
+  .cmp-table th,.cmp-table td{padding:13px 14px}
+}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="fr"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Astrela — Sécurisez vos marges industrielles dès la signature&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="description" content="Bloquez le coût de vos matières premières et composants à la signature de vos contrats. Couverture par prime fixe, sans appel de marge, accessible aux PME et ETI industrielles."&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1">:root{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--paper:#F4F1E9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--paper-2:#EBE6D9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--card:#FBFAF6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--ink:#15171A;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--ink-soft:#4C5258;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--steel:#1F405A;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--steel-deep:#142A3C;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--copper:#BC5631;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--copper-soft:#D98A5E;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--gain:#3B6A50;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--line:rgba(21,23,26,.13);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--line-strong:rgba(21,23,26,.28);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--display:"Archivo",system-ui,sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--body:"Newsreader",Georgia,serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--mono:"JetBrains Mono",ui-monospace,monospace;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">*{box-sizing:border-box;margin:0;padding:0}</span></p>
-<p class="p1"><span class="s1">html{scroll-behavior:smooth}</span></p>
-<p class="p1"><span class="s1">body{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--paper);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color:var(--ink);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:var(--body);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>line-height:1.55;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>-webkit-font-smoothing:antialiased;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>overflow-x:hidden;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">body::before{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.wrap{max-width:1180px;margin:0 auto;padding:0 28px}</span></p>
-<p class="p1"><span class="s1">h1,h2,h3,.eyebrow,.btn,.nav,th,.stat-num,.tag{font-family:var(--display)}</span></p>
-<p class="p1"><span class="s1">.mono{font-family:var(--mono)}</span></p>
-<p class="p1"><span class="s1">.eyebrow{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color:var(--copper);display:inline-flex;align-items:center;gap:10px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.eyebrow::before{content:"";width:26px;height:2px;background:var(--copper)}</span></p>
-<p class="p1"><span class="s1">a{color:inherit}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* NAV */</span></p>
-<p class="p1"><span class="s1">.nav{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:sticky;top:0;z-index:100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:flex;align-items:center;justify-content:space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:16px 28px;max-width:1180px;margin:0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>backdrop-filter:saturate(1.1) blur(6px);</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.nav-bar{position:sticky;top:0;z-index:100;border-bottom:1px solid transparent;transition:.3s}</span></p>
-<p class="p1"><span class="s1">.nav-bar.scrolled{background:rgba(244,241,233,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}</span></p>
-<p class="p1"><span class="s1">.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px;letter-spacing:-.02em}</span></p>
-<p class="p1"><span class="s1">.logo-mark{width:30px;height:30px;position:relative;flex:0 0 auto}</span></p>
-<p class="p1"><span class="s1">.logo-mark svg{display:block}</span></p>
-<p class="p1"><span class="s1">.nav-links{display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:500;font-family:var(--display)}</span></p>
-<p class="p1"><span class="s1">.nav-links a{text-decoration:none;color:var(--ink-soft);transition:.2s}</span></p>
-<p class="p1"><span class="s1">.nav-links a:hover{color:var(--ink)}</span></p>
-<p class="p1"><span class="s1">.btn{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:15px;font-weight:700;letter-spacing:.01em;text-decoration:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:13px 22px;border-radius:2px;transition:.2s;line-height:1;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.btn-primary{background:var(--copper);color:#fff;box-shadow:3px 3px 0 var(--steel-deep)}</span></p>
-<p class="p1"><span class="s1">.btn-primary:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--steel-deep)}</span></p>
-<p class="p1"><span class="s1">.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}</span></p>
-<p class="p1"><span class="s1">.btn-ghost:hover{background:var(--ink);color:var(--paper)}</span></p>
-<p class="p1"><span class="s1">.btn-arrow{transition:.2s}</span></p>
-<p class="p1"><span class="s1">.btn:hover .btn-arrow{transform:translateX(3px)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* HERO */</span></p>
-<p class="p1"><span class="s1">.hero{padding:70px 0 90px;position:relative}</span></p>
-<p class="p1"><span class="s1">.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}</span></p>
-<p class="p1"><span class="s1">.hero h1{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:clamp(40px,5.4vw,68px);font-weight:800;line-height:1.02;letter-spacing:-.025em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin:22px 0 0;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.hero h1 .em{color:var(--copper)}</span></p>
-<p class="p1"><span class="s1">.hero .sub{font-size:21px;color:var(--ink-soft);margin:26px 0 34px;max-width:30em}</span></p>
-<p class="p1"><span class="s1">.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}</span></p>
-<p class="p1"><span class="s1">.hero-note{font-size:13.5px;color:var(--ink-soft);font-family:var(--display);margin-top:20px;display:flex;align-items:center;gap:8px}</span></p>
-<p class="p1"><span class="s1">.dot{width:7px;height:7px;border-radius:50%;background:var(--gain);box-shadow:0 0 0 4px rgba(59,106,80,.18)}</span></p>
-<p class="p1"><span class="s1">.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}</span></p>
-<p class="p1"><span class="s1">@keyframes rise{to{opacity:1;transform:none}}</span></p>
-<p class="p1"><span class="s1">.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.49s}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* effet ciseau visual */</span></p>
-<p class="p1"><span class="s1">.scissor{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--steel-deep);border-radius:4px;padding:30px 30px 26px;color:#EAE6DC;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow:0 24px 60px -28px rgba(20,42,60,.7);position:relative;overflow:hidden;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.scissor::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(189,86,49,.16),transparent 55%);pointer-events:none}</span></p>
-<p class="p1"><span class="s1">.scissor-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}</span></p>
-<p class="p1"><span class="s1">.scissor-head .t{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.04em}</span></p>
-<p class="p1"><span class="s1">.scissor-head .live{font-family:var(--mono);font-size:11px;color:var(--copper-soft);display:flex;align-items:center;gap:6px}</span></p>
-<p class="p1"><span class="s1">.scissor-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--copper-soft);animation:blink 1.6s infinite}</span></p>
-<p class="p1"><span class="s1">@keyframes blink{50%{opacity:.3}}</span></p>
-<p class="p1"><span class="s1">.chart{width:100%;height:210px;display:block}</span></p>
-<p class="p1"><span class="s1">.chart .grid-l{stroke:rgba(255,255,255,.08);stroke-width:1}</span></p>
-<p class="p1"><span class="s1">.chart .cost{fill:none;stroke:var(--copper-soft);stroke-width:3;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2s .5s ease forwards}</span></p>
-<p class="p1"><span class="s1">.chart .price{fill:none;stroke:rgba(234,230,220,.65);stroke-width:2.5;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2s .8s ease forwards}</span></p>
-<p class="p1"><span class="s1">.chart .squeeze{fill:rgba(189,86,49,.22);opacity:0;animation:fadein 1s 2.4s ease forwards}</span></p>
-<p class="p1"><span class="s1">@keyframes draw{to{stroke-dashoffset:0}}</span></p>
-<p class="p1"><span class="s1">@keyframes fadein{to{opacity:1}}</span></p>
-<p class="p1"><span class="s1">.scissor-legend{display:flex;gap:20px;font-family:var(--mono);font-size:11px;margin-top:12px;color:rgba(234,230,220,.8)}</span></p>
-<p class="p1"><span class="s1">.scissor-legend span{display:flex;align-items:center;gap:7px}</span></p>
-<p class="p1"><span class="s1">.lg-c{width:14px;height:3px;background:var(--copper-soft)}</span></p>
-<p class="p1"><span class="s1">.lg-p{width:14px;height:3px;background:rgba(234,230,220,.65)}</span></p>
-<p class="p1"><span class="s1">.scissor-foot{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--display);font-size:13px;color:rgba(234,230,220,.78);display:flex;justify-content:space-between;align-items:center}</span></p>
-<p class="p1"><span class="s1">.scissor-foot b{color:#fff;font-weight:700}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* generic section */</span></p>
-<p class="p1"><span class="s1">section{padding:78px 0;position:relative}</span></p>
-<p class="p1"><span class="s1">.section-head{max-width:42em;margin-bottom:48px}</span></p>
-<p class="p1"><span class="s1">.section-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.06;margin-top:16px}</span></p>
-<p class="p1"><span class="s1">.section-head p{color:var(--ink-soft);font-size:19px;margin-top:16px}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* problem */</span></p>
-<p class="p1"><span class="s1">.problem{background:var(--paper-2)}</span></p>
-<p class="p1"><span class="s1">.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}</span></p>
-<p class="p1"><span class="s1">.pain{background:var(--paper-2);padding:30px 26px}</span></p>
-<p class="p1"><span class="s1">.pain .n{font-family:var(--mono);font-size:13px;color:var(--copper);font-weight:700}</span></p>
-<p class="p1"><span class="s1">.pain h3{font-size:20px;font-weight:700;margin:14px 0 10px;letter-spacing:-.01em}</span></p>
-<p class="p1"><span class="s1">.pain p{font-size:16px;color:var(--ink-soft);line-height:1.5}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* solution band */</span></p>
-<p class="p1"><span class="s1">.solution .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}</span></p>
-<p class="p1"><span class="s1">.solution-points{list-style:none;margin-top:26px}</span></p>
-<p class="p1"><span class="s1">.solution-points li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}</span></p>
-<p class="p1"><span class="s1">.solution-points li:last-child{border-bottom:none}</span></p>
-<p class="p1"><span class="s1">.check{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gain);display:grid;place-items:center;margin-top:2px}</span></p>
-<p class="p1"><span class="s1">.check svg{width:14px;height:14px}</span></p>
-<p class="p1"><span class="s1">.solution-points b{font-family:var(--display);font-weight:700;font-size:17px;display:block;margin-bottom:3px}</span></p>
-<p class="p1"><span class="s1">.solution-points span{font-size:15.5px;color:var(--ink-soft)}</span></p>
-<p class="p1"><span class="s1">.solution-art{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:34px;box-shadow:0 20px 50px -34px rgba(20,42,60,.5)}</span></p>
-<p class="p1"><span class="s1">.prime-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}</span></p>
-<p class="p1"><span class="s1">.prime-row:last-child{border-bottom:none}</span></p>
-<p class="p1"><span class="s1">.prime-row .l{font-family:var(--display);font-size:14px;color:var(--ink-soft);font-weight:500}</span></p>
-<p class="p1"><span class="s1">.prime-row .v{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--steel)}</span></p>
-<p class="p1"><span class="s1">.prime-row .v.big{font-size:28px;color:var(--copper)}</span></p>
-<p class="p1"><span class="s1">.prime-cap{font-size:12.5px;color:var(--ink-soft);font-family:var(--display);margin-top:16px;font-style:italic}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* features */</span></p>
-<p class="p1"><span class="s1">.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}</span></p>
-<p class="p1"><span class="s1">.feat{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:30px;transition:.25s;position:relative;overflow:hidden}</span></p>
-<p class="p1"><span class="s1">.feat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--copper);transform:scaleY(0);transform-origin:top;transition:.3s}</span></p>
-<p class="p1"><span class="s1">.feat:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(20,42,60,.5)}</span></p>
-<p class="p1"><span class="s1">.feat:hover::before{transform:scaleY(1)}</span></p>
-<p class="p1"><span class="s1">.feat .ic{width:40px;height:40px;border:1.5px solid var(--steel);border-radius:3px;display:grid;place-items:center;margin-bottom:18px;color:var(--steel)}</span></p>
-<p class="p1"><span class="s1">.feat h3{font-size:19px;font-weight:700;margin-bottom:9px;letter-spacing:-.01em}</span></p>
-<p class="p1"><span class="s1">.feat p{font-size:16px;color:var(--ink-soft)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* steps */</span></p>
-<p class="p1"><span class="s1">.steps{background:var(--steel-deep);color:#EAE6DC}</span></p>
-<p class="p1"><span class="s1">.steps .eyebrow{color:var(--copper-soft)}</span></p>
-<p class="p1"><span class="s1">.steps .eyebrow::before{background:var(--copper-soft)}</span></p>
-<p class="p1"><span class="s1">.steps .section-head h2{color:#fff}</span></p>
-<p class="p1"><span class="s1">.steps .section-head p{color:rgba(234,230,220,.7)}</span></p>
-<p class="p1"><span class="s1">.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}</span></p>
-<p class="p1"><span class="s1">.step{position:relative;padding-top:28px}</span></p>
-<p class="p1"><span class="s1">.step .num{font-family:var(--mono);font-size:46px;font-weight:700;color:var(--copper-soft);line-height:1}</span></p>
-<p class="p1"><span class="s1">.step h3{font-size:21px;font-weight:700;margin:16px 0 12px;color:#fff;letter-spacing:-.01em}</span></p>
-<p class="p1"><span class="s1">.step p{font-size:16px;color:rgba(234,230,220,.74);line-height:1.55}</span></p>
-<p class="p1"><span class="s1">.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.12)}</span></p>
-<p class="p1"><span class="s1">.step.active::before{background:var(--copper-soft)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* comparison */</span></p>
-<p class="p1"><span class="s1">.cmp-table{width:100%;border-collapse:collapse;font-size:16px;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}</span></p>
-<p class="p1"><span class="s1">.cmp-table th,.cmp-table td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);vertical-align:top}</span></p>
-<p class="p1"><span class="s1">.cmp-table thead th{font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;background:var(--paper-2)}</span></p>
-<p class="p1"><span class="s1">.cmp-table thead th:last-child{background:var(--steel);color:#fff}</span></p>
-<p class="p1"><span class="s1">.cmp-table td:first-child{font-family:var(--display);font-weight:600;font-size:15px;width:24%}</span></p>
-<p class="p1"><span class="s1">.cmp-table td.us{background:rgba(189,86,49,.06);font-family:var(--body)}</span></p>
-<p class="p1"><span class="s1">.cmp-table tr:last-child td{border-bottom:none}</span></p>
-<p class="p1"><span class="s1">.x-mark{color:var(--copper);font-weight:700}</span></p>
-<p class="p1"><span class="s1">.v-mark{color:var(--gain);font-weight:700}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* for whom */</span></p>
-<p class="p1"><span class="s1">.whom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}</span></p>
-<p class="p1"><span class="s1">.whom{border:1px solid var(--line);border-radius:4px;padding:24px;background:var(--card)}</span></p>
-<p class="p1"><span class="s1">.whom .tag{font-family:var(--mono);font-size:12px;color:var(--copper);font-weight:500}</span></p>
-<p class="p1"><span class="s1">.whom p{font-size:15.5px;margin-top:10px;color:var(--ink-soft)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* trust band */</span></p>
-<p class="p1"><span class="s1">.trust{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}</span></p>
-<p class="p1"><span class="s1">.trust .wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap}</span></p>
-<p class="p1"><span class="s1">.trust-stat{flex:1;min-width:200px}</span></p>
-<p class="p1"><span class="s1">.trust-stat .stat-num{font-family:var(--display);font-size:40px;font-weight:800;color:var(--steel);letter-spacing:-.02em;line-height:1}</span></p>
-<p class="p1"><span class="s1">.trust-stat .stat-lab{font-size:15px;color:var(--ink-soft);margin-top:8px}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* form */</span></p>
-<p class="p1"><span class="s1">.cta-form{background:var(--steel-deep);color:#EAE6DC}</span></p>
-<p class="p1"><span class="s1">.cta-form .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}</span></p>
-<p class="p1"><span class="s1">.cta-form .eyebrow{color:var(--copper-soft)}</span></p>
-<p class="p1"><span class="s1">.cta-form .eyebrow::before{background:var(--copper-soft)}</span></p>
-<p class="p1"><span class="s1">.cta-form h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.06;margin-top:16px}</span></p>
-<p class="p1"><span class="s1">.cta-form .lede{color:rgba(234,230,220,.74);font-size:18px;margin-top:18px}</span></p>
-<p class="p1"><span class="s1">.cta-bullets{list-style:none;margin-top:26px}</span></p>
-<p class="p1"><span class="s1">.cta-bullets li{display:flex;gap:12px;align-items:center;padding:9px 0;font-family:var(--display);font-size:15px;color:rgba(234,230,220,.9)}</span></p>
-<p class="p1"><span class="s1">.cta-bullets li::before{content:"✓";color:var(--copper-soft);font-weight:700}</span></p>
-<p class="p1"><span class="s1">.form-card{background:var(--card);border-radius:5px;padding:34px;color:var(--ink);box-shadow:0 30px 70px -30px rgba(0,0,0,.5)}</span></p>
-<p class="p1"><span class="s1">.fg{margin-bottom:18px}</span></p>
-<p class="p1"><span class="s1">.fg label{display:block;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:7px;color:var(--ink)}</span></p>
-<p class="p1"><span class="s1">.fg input,.fg select{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>width:100%;padding:13px 14px;border:1px solid var(--line-strong);border-radius:3px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:var(--body);font-size:16px;background:var(--paper);color:var(--ink);transition:.2s;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.fg input:focus,.fg select:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(189,86,49,.15)}</span></p>
-<p class="p1"><span class="s1">.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}</span></p>
-<p class="p1"><span class="s1">.estimate{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--paper-2);border:1px dashed var(--copper);border-radius:3px;padding:14px 16px;margin:4px 0 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:var(--display);font-size:14px;display:none;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.estimate.show{display:block;animation:rise .4s ease}</span></p>
-<p class="p1"><span class="s1">.estimate b{font-family:var(--mono);font-size:20px;color:var(--copper);display:block;margin:4px 0}</span></p>
-<p class="p1"><span class="s1">.estimate .cap{font-size:11.5px;color:var(--ink-soft);font-style:normal;font-family:var(--body)}</span></p>
-<p class="p1"><span class="s1">.form-card .btn-primary{width:100%;justify-content:center;font-size:16px;padding:16px}</span></p>
-<p class="p1"><span class="s1">.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--steel-deep)}</span></p>
-<p class="p1"><span class="s1">.form-legal{font-size:12px;color:var(--ink-soft);font-family:var(--display);margin-top:14px;line-height:1.5}</span></p>
-<p class="p1"><span class="s1">.form-success{display:none;text-align:center;padding:30px 10px}</span></p>
-<p class="p1"><span class="s1">.form-success.show{display:block;animation:rise .5s ease}</span></p>
-<p class="p1"><span class="s1">.form-success .ok{width:56px;height:56px;border-radius:50%;background:var(--gain);display:grid;place-items:center;margin:0 auto 18px}</span></p>
-<p class="p1"><span class="s1">.form-success h3{font-family:var(--display);font-size:24px;font-weight:800;margin-bottom:10px}</span></p>
-<p class="p1"><span class="s1">.form-success p{color:var(--ink-soft);font-size:16px}</span></p>
-<p class="p1"><span class="s1">.form-error{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:#fef2f2;border:1px solid #fca5a5;border-radius:3px;padding:12px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:var(--display);font-size:14px;color:#b91c1c;margin-bottom:16px;display:none;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.form-error.show{display:block;animation:rise .3s ease}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* faq */</span></p>
-<p class="p1"><span class="s1">.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}</span></p>
-<p class="p1"><span class="s1">.faq details{border-bottom:1px solid var(--line);padding:6px 0}</span></p>
-<p class="p1"><span class="s1">.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-family:var(--display);font-weight:600;font-size:17.5px;display:flex;justify-content:space-between;align-items:center;gap:16px}</span></p>
-<p class="p1"><span class="s1">.faq summary::-webkit-details-marker{display:none}</span></p>
-<p class="p1"><span class="s1">.faq summary .pm{color:var(--copper);font-family:var(--mono);font-size:22px;transition:.2s;flex:0 0 auto}</span></p>
-<p class="p1"><span class="s1">.faq details[open] summary .pm{transform:rotate(45deg)}</span></p>
-<p class="p1"><span class="s1">.faq p{color:var(--ink-soft);font-size:16px;padding:0 0 18px;max-width:42em}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* footer */</span></p>
-<p class="p1"><span class="s1">footer{background:var(--ink);color:rgba(234,230,220,.62);padding:54px 0 36px;font-family:var(--display)}</span></p>
-<p class="p1"><span class="s1">.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}</span></p>
-<p class="p1"><span class="s1">.foot-top .logo{color:#fff;font-size:20px}</span></p>
-<p class="p1"><span class="s1">footer .disclaimer{font-size:12.5px;line-height:1.6;margin-top:24px;max-width:62em;color:rgba(234,230,220,.5)}</span></p>
-<p class="p1"><span class="s1">footer .cr{font-size:12.5px;margin-top:22px}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">@media(max-width:880px){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.hero-grid,.solution .wrap,.cta-form .wrap{grid-template-columns:1fr;gap:40px}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.pain-grid,.step-grid,.whom-grid,.feat-grid,.faq-grid{grid-template-columns:1fr}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.nav-links{display:none}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.hero{padding:48px 0 60px}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>section{padding:58px 0}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.cmp-table{font-size:14px}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.cmp-table th,.cmp-table td{padding:13px 14px}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div class="nav-bar" id="navbar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;nav class="nav"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="logo-mark"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;svg width="30" height="30" viewBox="0 0 30 30" fill="none"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;rect x="1" y="1" width="28" height="28" rx="3" stroke="#1F405A" stroke-width="2"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;path d="M7 20 L13 11 L17 17 L23 8" stroke="#BC5631" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;circle cx="23" cy="8" r="2.4" fill="#BC5631"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>Astrela</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="nav-links"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#probleme"&gt;Le problème&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#solution"&gt;La solution&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#fonctionnement"&gt;Fonctionnement&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#comparatif"&gt;Comparatif&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#faq"&gt;FAQ&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a href="#simuler" class="btn btn-primary"&gt;Simuler ma couverture &lt;span class="btn-arrow"&gt;→&lt;/span&gt;&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- HERO --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;header class="hero"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap hero-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow reveal d1"&gt;Couverture prix matières pour l'industrie&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h1 class="reveal d2"&gt;Sécurisez vos marges &lt;span class="em"&gt;dès la signature&lt;/span&gt; de vos contrats.&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="sub reveal d3"&gt;Bloquez le coût de vos matières premières et composants au moment où vous vous engagez. Une couverture par prime fixe, sans appel de marge, sans compte de trading, pensée pour les PME et ETI industrielles.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="hero-cta reveal d4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#simuler" class="btn btn-primary"&gt;Tester mon éligibilité &lt;span class="btn-arrow"&gt;→&lt;/span&gt;&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#fonctionnement" class="btn btn-ghost"&gt;Voir comment ça marche&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="hero-note reveal d5"&gt;&lt;span class="dot"&gt;&lt;/span&gt;Couverture activable projet par projet, sans minimum de volume.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="scissor reveal d4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="scissor-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="t"&gt;L'effet ciseau sur vos marges&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="live"&gt;marché en direct&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;svg class="chart" viewBox="0 0 420 210" preserveAspectRatio="none"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;line class="grid-l" x1="0" y1="42" x2="420" y2="42"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;line class="grid-l" x1="0" y1="105" x2="420" y2="105"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;line class="grid-l" x1="0" y1="168" x2="420" y2="168"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;polygon class="squeeze" points="0,150 420,40 420,120 0,150"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path class="price" d="M0,150 C120,148 240,150 420,148"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path class="cost" d="M0,150 C110,140 240,95 420,40"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="scissor-legend"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span&gt;&lt;i class="lg-c"&gt;&lt;/i&gt; Coût de vos intrants&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span&gt;&lt;i class="lg-p"&gt;&lt;/i&gt; Prix de vente fixé au client&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="scissor-foot"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span&gt;Sans couverture, la hausse des cours grignote votre marge.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;b&gt;Astrela fige l'écart.&lt;/b&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- PROBLEME --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="problem" id="probleme"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Le problème&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Vous vendez à prix ferme. Vous achetez à prix variable.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;En tant que dirigeant ou acheteur industriel, vous vous engagez sur des prix fixes à plusieurs mois auprès de vos donneurs d'ordres. Pendant ce temps, le coût de vos métaux, alliages, plastiques et composants varie chaque jour sur les marchés mondiaux.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="pain-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="pain"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="n"&gt;01&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Des clauses de révision inopérantes&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Les clauses d'indexation sont complexes à activer, décalées dans le temps, ou refusées par vos clients. En cas de hausse brutale, vous absorbez le surcoût.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="pain"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="n"&gt;02&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Des marchés à terme hors de portée&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Les futures et les solutions bancaires exigent des volumes élevés et des appels de marge quotidiens qui immobilisent votre trésorerie opérationnelle.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="pain"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="n"&gt;03&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Une marge qui s'érode en silence&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Résultat : la plupart des PME industrielles subissent le risque prix sans pouvoir le piloter, avec un P&amp;L et des cash-flows imprévisibles.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- SOLUTION --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="solution" id="solution"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;La solution&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.06;margin-top:16px;font-family:var(--display)"&gt;Une prime fixe à la place d'un risque ouvert.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p style="color:var(--ink-soft);font-size:19px;margin-top:16px"&gt;Nous convertissons la complexité des marchés de commodités en une couverture standardisée. Vous protégez la valeur de la matière contenue dans les produits et composants que vous achetez pour produire, sans rien acheter en bourse.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul class="solution-points"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span class="check"&gt;&lt;svg viewBox="0 0 14 14" fill="none"&gt;&lt;path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;b&gt;Trésorerie préservée&lt;/b&gt;&lt;span&gt;Aucun dépôt de garantie, aucun appel de marge en cours de contrat.&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span class="check"&gt;&lt;svg viewBox="0 0 14 14" fill="none"&gt;&lt;path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;b&gt;Simplicité comptable&lt;/b&gt;&lt;span&gt;Une prime fixe unique, payée d'avance, intégrée comme un coût de projet.&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span class="check"&gt;&lt;svg viewBox="0 0 14 14" fill="none"&gt;&lt;path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;b&gt;À votre échelle&lt;/b&gt;&lt;span&gt;Pas de minimum de volume. Vous activez la couverture projet par projet.&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="solution-art"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="prime-row"&gt;&lt;span class="l"&gt;Valeur matière à protéger&lt;/span&gt;&lt;span class="v"&gt;250 000 €&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="prime-row"&gt;&lt;span class="l"&gt;Durée du contrat commercial&lt;/span&gt;&lt;span class="v"&gt;6 mois&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="prime-row"&gt;&lt;span class="l"&gt;Appels de marge&lt;/span&gt;&lt;span class="v" style="color:var(--gain)"&gt;0 €&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="prime-row"&gt;&lt;span class="l"&gt;Prime fixe estimée&lt;/span&gt;&lt;span class="v big"&gt;2 à 4 %&lt;/span&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="prime-cap"&gt;Exemple illustratif à des fins de démonstration. La fourchette de prime n'est pas contractuelle et dépend du métal, de la durée et de la volatilité au moment de la souscription.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- FEATURES --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Ce que couvre Astrela&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Conçu pour la réalité d'un atelier, pas d'une salle de marché.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="feat-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="feat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="ic"&gt;&lt;svg width="22" height="22" viewBox="0 0 22 22" fill="none"&gt;&lt;rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/&gt;&lt;path d="M7 11h8M11 7v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/&gt;&lt;/svg&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Large périmètre d'intrants&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Métaux de base, aciers, alliages, mais aussi produits semi-finis et composants transformés qui en dérivent.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="feat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="ic"&gt;&lt;svg width="22" height="22" viewBox="0 0 22 22" fill="none"&gt;&lt;path d="M3 17 L8 10 L12 13 L19 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Couverture à la hausse, liberté à la baisse&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Vous choisissez votre intervalle de protection contre la hausse des prix. Si les prix baissent, vous achetez moins cher et gardez le gain.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="feat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="ic"&gt;&lt;svg width="22" height="22" viewBox="0 0 22 22" fill="none"&gt;&lt;path d="M11 2 L18 5 V11 C18 16 11 20 11 20 C11 20 4 16 4 11 V5 Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Sans compte de trading&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Aucune expertise de marché, de back-office ou de comptabilité de couverture requise de votre part.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="feat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="ic"&gt;&lt;svg width="22" height="22" viewBox="0 0 22 22" fill="none"&gt;&lt;circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/&gt;&lt;path d="M11 6v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/&gt;&lt;/svg&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Activation rapide, par projet&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Vous calez la couverture sur la durée de votre engagement commercial, lancement de production par lancement de production.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- STEPS --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="steps" id="fonctionnement"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Comment ça marche&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Trois étapes, zéro complexité de marché.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="step-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step active"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="num"&gt;01&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Configuration&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Vous indiquez la matière ou le composant acheté, la valeur à protéger et la durée de votre engagement. Vous définissez l'intervalle de prix à sécuriser.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step active"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="num"&gt;02&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Souscription&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Notre outil calcule une prime fixe, exprimée en pourcentage de la valeur à protéger. Vous validez votre contrat de couverture, sans dépôt.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step active"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="num"&gt;03&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Régulation de l'écart&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Si les cours de référence dépassent votre borne pendant la durée du contrat, vous recevez une compensation financière. S'ils restent dans l'intervalle ou baissent, vous profitez du prix bas.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- COMPARATIF --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section id="comparatif"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Comparatif&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Outils financiers classiques contre Astrela.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;table class="cmp-table"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;&lt;th&gt;Critère&lt;/th&gt;&lt;th&gt;Outils financiers classiques&lt;/th&gt;&lt;th&gt;Astrela&lt;/th&gt;&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;tbody&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;Flux de trésorerie&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;&lt;span class="x-mark"&gt;×&lt;/span&gt; Appels de marge imprévisibles au jour le jour&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td class="us"&gt;&lt;span class="v-mark"&gt;✓&lt;/span&gt; Prime fixe, connue et payée dès le départ&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;Ticket d'entrée&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;&lt;span class="x-mark"&gt;×&lt;/span&gt; Réservé aux volumes industriels importants&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td class="us"&gt;&lt;span class="v-mark"&gt;✓&lt;/span&gt; Accessible dès le premier lot de production&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;Périmètre d'actifs&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;&lt;span class="x-mark"&gt;×&lt;/span&gt; Uniquement des commodités cotées en bourse&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td class="us"&gt;&lt;span class="v-mark"&gt;✓&lt;/span&gt; Matières et produits transformés intégrés&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;Gestion interne&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;&lt;span class="x-mark"&gt;×&lt;/span&gt; Expertise de trading et suivi lourd&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td class="us"&gt;&lt;span class="v-mark"&gt;✓&lt;/span&gt; Administration simplifiée, sans compte de trading&lt;/td&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/tbody&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- POUR QUI --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="problem"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Pour qui&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Si vous cotez à prix ferme sur des intrants volatils, c'est pour vous.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="whom-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="whom"&gt;&lt;span class="tag"&gt;// transformation&lt;/span&gt;&lt;p&gt;Transformation des métaux, mécanique, tôlerie et chaudronnerie.&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="whom"&gt;&lt;span class="tag"&gt;// fonderie&lt;/span&gt;&lt;p&gt;Fonderies et acheteurs de métaux primaires ou recyclés.&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="whom"&gt;&lt;span class="tag"&gt;// construction&lt;/span&gt;&lt;p&gt;Construction métallique et BTP, sur devis longs à prix fixe.&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="whom"&gt;&lt;span class="tag"&gt;// équipement&lt;/span&gt;&lt;p&gt;Fabricants de biens d'équipement et de composants industriels.&lt;/p&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- TRUST --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="trust"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="trust-stat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-num"&gt;Prime fixe&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-lab"&gt;Payée d'avance. Aucun appel de marge en cours de contrat.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="trust-stat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-num"&gt;0 minimum&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-lab"&gt;Pas de volume annuel imposé. Vous couvrez projet par projet.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="trust-stat"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-num"&gt;Indexé marché&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="stat-lab"&gt;Déclenchement sur un indice de référence public et transparent.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- FORM --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section class="cta-form" id="simuler"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Simulation gratuite&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Simulez la protection de votre prochain devis.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="lede"&gt;Remplissez ce formulaire en deux minutes pour tester votre éligibilité et recevoir une estimation indicative de couverture. Nous vous recontactons pour comprendre votre besoin.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul class="cta-bullets"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Estimation gratuite et sans engagement&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Aucune information bancaire demandée&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Réponse personnalisée sous quelques jours&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="form-error" id="formError"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;form id="leadForm" novalidate&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="fg-row"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="nom"&gt;Nom et prénom&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="nom" name="nom" type="text" placeholder="Jean Dupont" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="entreprise"&gt;Entreprise&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="entreprise" name="entreprise" type="text" placeholder="Votre société" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;label for="email"&gt;Email professionnel&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;input id="email" name="email" type="email" placeholder="vous@entreprise.fr" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="fg-row"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="secteur"&gt;Secteur d'activité&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="secteur" name="secteur" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option value="" disabled selected&gt;Sélectionner&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Transformation des métaux&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Fonderie&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Construction métallique / BTP&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Biens d'équipement / composants&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Autre industrie&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label for="matiere"&gt;Matière à sécuriser&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="matiere" name="matiere" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option value="" disabled selected&gt;Sélectionner&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Aluminium&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Cuivre&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Acier&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Nickel&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Zinc / plomb / étain&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Composant transformé&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;option&gt;Autre&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="fg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;label for="valeur"&gt;Valeur estimée du lot à protéger (€)&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;input id="valeur" name="valeur" type="number" min="0" placeholder="Ex. 250000" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="estimate" id="estimate"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Fourchette de prime indicative pour ce montant</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;b id="estimateVal"&gt;—&lt;/b&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span class="cap"&gt;Estimation purement indicative et non contractuelle. Le tarif réel dépend du métal, de la durée et des conditions de marché.&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button type="submit" id="submitBtn" class="btn btn-primary"&gt;Tester mon éligibilité &lt;span class="btn-arrow"&gt;→&lt;/span&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="form-legal"&gt;En soumettant ce formulaire, vous acceptez d'être recontacté au sujet de cette offre. Vos données ne sont utilisées qu'à cette fin.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/form&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="form-success" id="formSuccess"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="ok"&gt;&lt;svg width="26" height="26" viewBox="0 0 26 26" fill="none"&gt;&lt;path d="M5 14 L11 20 L21 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Demande bien reçue.&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Merci. Nous revenons vers vous rapidement avec une estimation adaptée à votre besoin.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- FAQ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;section id="faq"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-head"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="eyebrow"&gt;Questions fréquentes&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Ce que les industriels nous demandent.&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="faq-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Dois-je acheter des matières en bourse ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Non. Vous continuez d'acheter vos matières et composants auprès de vos fournisseurs habituels. Astrela protège seulement la valeur prix, en parallèle, sans intervenir dans vos achats physiques.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Y a-t-il des appels de marge ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Non. Vous payez une prime fixe au départ, une fois. En cours de contrat, aucune somme supplémentaire ne vous est demandée, quelle que soit l'évolution des cours.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Et si les prix baissent ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Vous achetez votre matière au prix bas du marché et gardez l'avantage. La couverture vous protège du scénario défavorable sans vous priver du scénario favorable.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Faut-il un volume minimum ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Non. L'offre est pensée pour s'activer projet par projet, y compris sur un seul lot de production, sans engagement de volume annuel.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Sur quels métaux et matières ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Métaux de base, aciers, alliages, ainsi que les produits semi-finis et composants qui en dérivent. Indiquez votre matière dans le formulaire pour vérifier l'éligibilité.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;summary&gt;Comment est calculée la prime ? &lt;span class="pm"&gt;+&lt;/span&gt;&lt;/summary&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;La prime est un pourcentage de la valeur à protéger, déterminé selon le métal concerné, la durée de votre engagement et la volatilité du marché au moment de la souscription. Elle est connue et payée d'avance.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/details&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="foot-top"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="logo-mark"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;svg width="30" height="30" viewBox="0 0 30 30" fill="none"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;rect x="1" y="1" width="28" height="28" rx="3" stroke="#EAE6DC" stroke-width="2" opacity=".6"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;path d="M7 20 L13 11 L17 17 L23 8" stroke="#D98A5E" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;circle cx="23" cy="8" r="2.4" fill="#D98A5E"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Astrela</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#simuler" class="btn btn-primary"&gt;Simuler ma couverture &lt;span class="btn-arrow"&gt;→&lt;/span&gt;&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p class="disclaimer"&gt;Les informations présentées sur cette page sont fournies à titre indicatif et ne constituent ni un conseil en investissement, ni une sollicitation d'instrument financier. Les exemples de prime et les fourchettes mentionnés sont illustratifs et non contractuels.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p class="cr"&gt;© 2026 Astrela. Tous droits réservés.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1">// nav scroll state</span></p>
-<p class="p1"><span class="s1">const navbar = document.getElementById('navbar');</span></p>
-<p class="p1"><span class="s1">window.addEventListener('scroll', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>navbar.classList.toggle('scrolled', window.scrollY &gt; 20);</span></p>
-<p class="p1"><span class="s1">});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">// indicative estimate</span></p>
-<p class="p1"><span class="s1">const valeurInput = document.getElementById('valeur');</span></p>
-<p class="p1"><span class="s1">const est = document.getElementById('estimate');</span></p>
-<p class="p1"><span class="s1">const estVal = document.getElementById('estimateVal');</span></p>
-<p class="p1"><span class="s1">const fmt = n =&gt; new Intl.NumberFormat('fr-FR').format(Math.round(n));</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">valeurInput.addEventListener('input', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const v = parseFloat(valeurInput.value);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (v &amp;&amp; v &gt; 0) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>estVal.textContent = '≈ ' + fmt(v * 0.02) + ' € à ' + fmt(v * 0.04) + ' €';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>est.classList.add('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>est.classList.remove('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">// Formspree submission</span></p>
-<p class="p1"><span class="s1">const form = document.getElementById('leadForm');</span></p>
-<p class="p1"><span class="s1">const success = document.getElementById('formSuccess');</span></p>
-<p class="p1"><span class="s1">const errorBox = document.getElementById('formError');</span></p>
-<p class="p1"><span class="s1">const submitBtn = document.getElementById('submitBtn');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">form.addEventListener('submit', async (e) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>e.preventDefault();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!form.checkValidity()) { form.reportValidity(); return; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// UI: loading state</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>submitBtn.disabled = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>submitBtn.textContent = 'Envoi en cours…';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>errorBox.classList.remove('show');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const data = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nom: form.nom.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>entreprise: form.entreprise.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>email: form.email.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>secteur: form.secteur.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>matiere: form.matiere.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>valeur: form.valeur.value</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const res = await fetch('https://formspree.io/f/xnjynkqw', {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>method: 'POST',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body: JSON.stringify(data)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (res.ok) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>form.style.display = 'none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>errorBox.classList.remove('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>success.classList.add('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>throw new Error('Formspree returned ' + res.status);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch (err) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>console.error(err);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>submitBtn.disabled = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>submitBtn.innerHTML = 'Tester mon éligibilité &lt;span class="btn-arrow"&gt;→&lt;/span&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>errorBox.classList.add('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">});</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
+
+<div class="nav-bar" id="navbar">
+  <nav class="nav">
+    <div class="logo">
+      <span class="logo-mark">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <rect x="1" y="1" width="28" height="28" rx="3" stroke="#1F405A" stroke-width="2"/>
+          <path d="M7 20 L13 11 L17 17 L23 8" stroke="#BC5631" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="23" cy="8" r="2.4" fill="#BC5631"/>
+        </svg>
+      </span>
+      Astrela
+    </div>
+    <div class="nav-links">
+      <a href="#probleme">Le problème</a>
+      <a href="#solution">La solution</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#comparatif">Comparatif</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#simuler" class="btn btn-primary">Simuler ma couverture <span class="btn-arrow">→</span></a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow reveal d1">Couverture prix matières pour l'industrie</span>
+      <h1 class="reveal d2">Sécurisez vos marges <span class="em">dès la signature</span> de vos contrats.</h1>
+      <p class="sub reveal d3">Bloquez le coût de vos matières premières et composants au moment où vous vous engagez. Une couverture par prime fixe, sans appel de marge, sans compte de trading, pensée pour les PME et ETI industrielles.</p>
+      <div class="hero-cta reveal d4">
+        <a href="#simuler" class="btn btn-primary">Tester mon éligibilité <span class="btn-arrow">→</span></a>
+        <a href="#fonctionnement" class="btn btn-ghost">Voir comment ça marche</a>
+      </div>
+      <div class="hero-note reveal d5"><span class="dot"></span>Couverture activable projet par projet, sans minimum de volume.</div>
+    </div>
+    <div class="scissor reveal d4">
+      <div class="scissor-head">
+        <span class="t">L'effet ciseau sur vos marges</span>
+        <span class="live">marché en direct</span>
+      </div>
+      <svg class="chart" viewBox="0 0 420 210" preserveAspectRatio="none">
+        <line class="grid-l" x1="0" y1="42" x2="420" y2="42"/>
+        <line class="grid-l" x1="0" y1="105" x2="420" y2="105"/>
+        <line class="grid-l" x1="0" y1="168" x2="420" y2="168"/>
+        <polygon class="squeeze" points="0,150 420,40 420,120 0,150"/>
+        <path class="price" d="M0,150 C120,148 240,150 420,148"/>
+        <path class="cost" d="M0,150 C110,140 240,95 420,40"/>
+      </svg>
+      <div class="scissor-legend">
+        <span><i class="lg-c"></i> Coût de vos intrants</span>
+        <span><i class="lg-p"></i> Prix de vente fixé au client</span>
+      </div>
+      <div class="scissor-foot">
+        <span>Sans couverture, la hausse des cours grignote votre marge.</span>
+        <b>Astrela fige l'écart.</b>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="problem" id="probleme">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Le problème</span>
+      <h2>Vous vendez à prix ferme. Vous achetez à prix variable.</h2>
+      <p>En tant que dirigeant ou acheteur industriel, vous vous engagez sur des prix fixes à plusieurs mois auprès de vos donneurs d'ordres. Pendant ce temps, le coût de vos métaux, alliages, plastiques et composants varie chaque jour sur les marchés mondiaux.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain">
+        <div class="n">01</div>
+        <h3>Des clauses de révision inopérantes</h3>
+        <p>Les clauses d'indexation sont complexes à activer, décalées dans le temps, ou refusées par vos clients. En cas de hausse brutale, vous absorbez le surcoût.</p>
+      </div>
+      <div class="pain">
+        <div class="n">02</div>
+        <h3>Des marchés à terme hors de portée</h3>
+        <p>Les futures et les solutions bancaires exigent des volumes élevés et des appels de marge quotidiens qui immobilisent votre trésorerie opérationnelle.</p>
+      </div>
+      <div class="pain">
+        <div class="n">03</div>
+        <h3>Une marge qui s'érode en silence</h3>
+        <p>Résultat : la plupart des PME industrielles subissent le risque prix sans pouvoir le piloter, avec un P&L et des cash-flows imprévisibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution" id="solution">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">La solution</span>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.06;margin-top:16px;font-family:var(--display)">Une prime fixe à la place d'un risque ouvert.</h2>
+      <p style="color:var(--ink-soft);font-size:19px;margin-top:16px">Nous convertissons la complexité des marchés de commodités en une couverture standardisée. Vous protégez la valeur de la matière contenue dans les produits et composants que vous achetez pour produire, sans rien acheter en bourse.</p>
+      <ul class="solution-points">
+        <li>
+          <span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><b>Trésorerie préservée</b><span>Aucun dépôt de garantie, aucun appel de marge en cours de contrat.</span></div>
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><b>Simplicité comptable</b><span>Une prime fixe unique, payée d'avance, intégrée comme un coût de projet.</span></div>
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5 L5.5 11 L12 3.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><b>À votre échelle</b><span>Pas de minimum de volume. Vous activez la couverture projet par projet.</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="solution-art">
+      <div class="prime-row"><span class="l">Valeur matière à protéger</span><span class="v">250 000 €</span></div>
+      <div class="prime-row"><span class="l">Durée du contrat commercial</span><span class="v">6 mois</span></div>
+      <div class="prime-row"><span class="l">Appels de marge</span><span class="v" style="color:var(--gain)">0 €</span></div>
+      <div class="prime-row"><span class="l">Prime fixe estimée</span><span class="v big">2 à 4 %</span></div>
+      <p class="prime-cap">Exemple illustratif à des fins de démonstration. La fourchette de prime n'est pas contractuelle et dépend du métal, de la durée et de la volatilité au moment de la souscription.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Ce que couvre Astrela</span>
+      <h2>Conçu pour la réalité d'un atelier, pas d'une salle de marché.</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11h8M11 7v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Large périmètre d'intrants</h3>
+        <p>Métaux de base, aciers, alliages, mais aussi produits semi-finis et composants transformés qui en dérivent.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17 L8 10 L12 13 L19 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Couverture à la hausse, liberté à la baisse</h3>
+        <p>Vous choisissez votre intervalle de protection contre la hausse des prix. Si les prix baissent, vous achetez moins cher et gardez le gain.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2 L18 5 V11 C18 16 11 20 11 20 C11 20 4 16 4 11 V5 Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg></div>
+        <h3>Sans compte de trading</h3>
+        <p>Aucune expertise de marché, de back-office ou de comptabilité de couverture requise de votre part.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M11 6v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Activation rapide, par projet</h3>
+        <p>Vous calez la couverture sur la durée de votre engagement commercial, lancement de production par lancement de production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="fonctionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2>Trois étapes, zéro complexité de marché.</h2>
+    </div>
+    <div class="step-grid">
+      <div class="step active">
+        <div class="num">01</div>
+        <h3>Configuration</h3>
+        <p>Vous indiquez la matière ou le composant acheté, la valeur à protéger et la durée de votre engagement. Vous définissez l'intervalle de prix à sécuriser.</p>
+      </div>
+      <div class="step active">
+        <div class="num">02</div>
+        <h3>Souscription</h3>
+        <p>Notre outil calcule une prime fixe, exprimée en pourcentage de la valeur à protéger. Vous validez votre contrat de couverture, sans dépôt.</p>
+      </div>
+      <div class="step active">
+        <div class="num">03</div>
+        <h3>Régulation de l'écart</h3>
+        <p>Si les cours de référence dépassent votre borne pendant la durée du contrat, vous recevez une compensation financière. S'ils restent dans l'intervalle ou baissent, vous profitez du prix bas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comparatif">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Comparatif</span>
+      <h2>Outils financiers classiques contre Astrela.</h2>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr><th>Critère</th><th>Outils financiers classiques</th><th>Astrela</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Flux de trésorerie</td>
+          <td><span class="x-mark">×</span> Appels de marge imprévisibles au jour le jour</td>
+          <td class="us"><span class="v-mark">✓</span> Prime fixe, connue et payée dès le départ</td>
+        </tr>
+        <tr>
+          <td>Ticket d'entrée</td>
+          <td><span class="x-mark">×</span> Réservé aux volumes industriels importants</td>
+          <td class="us"><span class="v-mark">✓</span> Accessible dès le premier lot de production</td>
+        </tr>
+        <tr>
+          <td>Périmètre d'actifs</td>
+          <td><span class="x-mark">×</span> Uniquement des commodités cotées en bourse</td>
+          <td class="us"><span class="v-mark">✓</span> Matières et produits transformés intégrés</td>
+        </tr>
+        <tr>
+          <td>Gestion interne</td>
+          <td><span class="x-mark">×</span> Expertise de trading et suivi lourd</td>
+          <td class="us"><span class="v-mark">✓</span> Administration simplifiée, sans compte de trading</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pour qui</span>
+      <h2>Si vous cotez à prix ferme sur des intrants volatils, c'est pour vous.</h2>
+    </div>
+    <div class="whom-grid">
+      <div class="whom"><span class="tag">// transformation</span><p>Transformation des métaux, mécanique, tôlerie et chaudronnerie.</p></div>
+      <div class="whom"><span class="tag">// fonderie</span><p>Fonderies et acheteurs de métaux primaires ou recyclés.</p></div>
+      <div class="whom"><span class="tag">// construction</span><p>Construction métallique et BTP, sur devis longs à prix fixe.</p></div>
+      <div class="whom"><span class="tag">// équipement</span><p>Fabricants de biens d'équipement et de composants industriels.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-stat">
+      <div class="stat-num">Prime fixe</div>
+      <div class="stat-lab">Payée d'avance. Aucun appel de marge en cours de contrat.</div>
+    </div>
+    <div class="trust-stat">
+      <div class="stat-num">0 minimum</div>
+      <div class="stat-lab">Pas de volume annuel imposé. Vous couvrez projet par projet.</div>
+    </div>
+    <div class="trust-stat">
+      <div class="stat-num">Indexé marché</div>
+      <div class="stat-lab">Déclenchement sur un indice de référence public et transparent.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-form" id="simuler">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Simulation gratuite</span>
+      <h2>Simulez la protection de votre prochain devis.</h2>
+      <p class="lede">Remplissez ce formulaire en deux minutes pour tester votre éligibilité et recevoir une estimation indicative de couverture. Nous vous recontactons pour comprendre votre besoin.</p>
+      <ul class="cta-bullets">
+        <li>Estimation gratuite et sans engagement</li>
+        <li>Aucune information bancaire demandée</li>
+        <li>Réponse personnalisée sous quelques jours</li>
+      </ul>
+    </div>
+    <div class="form-card">
+      <div class="form-error" id="formError">
+        Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement.
+      </div>
+      <form id="leadForm" novalidate>
+        <div class="fg-row">
+          <div class="fg">
+            <label for="nom">Nom et prénom</label>
+            <input id="nom" name="nom" type="text" placeholder="Jean Dupont" required>
+          </div>
+          <div class="fg">
+            <label for="entreprise">Entreprise</label>
+            <input id="entreprise" name="entreprise" type="text" placeholder="Votre société" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="email">Email professionnel</label>
+          <input id="email" name="email" type="email" placeholder="vous@entreprise.fr" required>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label for="secteur">Secteur d'activité</label>
+            <select id="secteur" name="secteur" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Transformation des métaux</option>
+              <option>Fonderie</option>
+              <option>Construction métallique / BTP</option>
+              <option>Biens d'équipement / composants</option>
+              <option>Autre industrie</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="matiere">Matière à sécuriser</label>
+            <select id="matiere" name="matiere" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Aluminium</option>
+              <option>Cuivre</option>
+              <option>Acier</option>
+              <option>Nickel</option>
+              <option>Zinc / plomb / étain</option>
+              <option>Composant transformé</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="valeur">Valeur estimée du lot à protéger (€)</label>
+          <input id="valeur" name="valeur" type="number" min="0" placeholder="Ex. 250000" required>
+        </div>
+        <div class="estimate" id="estimate">
+          Fourchette de prime indicative pour ce montant
+          <b id="estimateVal">—</b>
+          <span class="cap">Estimation purement indicative et non contractuelle. Le tarif réel dépend du métal, de la durée et des conditions de marché.</span>
+        </div>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Tester mon éligibilité <span class="btn-arrow">→</span></button>
+        <p class="form-legal">En soumettant ce formulaire, vous acceptez d'être recontacté au sujet de cette offre. Vos données ne sont utilisées qu'à cette fin.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="ok"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M5 14 L11 20 L21 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Demande bien reçue.</h3>
+        <p>Merci. Nous revenons vers vous rapidement avec une estimation adaptée à votre besoin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Ce que les industriels nous demandent.</h2>
+    </div>
+    <div class="faq-grid">
+      <details>
+        <summary>Dois-je acheter des matières en bourse ? <span class="pm">+</span></summary>
+        <p>Non. Vous continuez d'acheter vos matières et composants auprès de vos fournisseurs habituels. Astrela protège seulement la valeur prix, en parallèle, sans intervenir dans vos achats physiques.</p>
+      </details>
+      <details>
+        <summary>Y a-t-il des appels de marge ? <span class="pm">+</span></summary>
+        <p>Non. Vous payez une prime fixe au départ, une fois. En cours de contrat, aucune somme supplémentaire ne vous est demandée, quelle que soit l'évolution des cours.</p>
+      </details>
+      <details>
+        <summary>Et si les prix baissent ? <span class="pm">+</span></summary>
+        <p>Vous achetez votre matière au prix bas du marché et gardez l'avantage. La couverture vous protège du scénario défavorable sans vous priver du scénario favorable.</p>
+      </details>
+      <details>
+        <summary>Faut-il un volume minimum ? <span class="pm">+</span></summary>
+        <p>Non. L'offre est pensée pour s'activer projet par projet, y compris sur un seul lot de production, sans engagement de volume annuel.</p>
+      </details>
+      <details>
+        <summary>Sur quels métaux et matières ? <span class="pm">+</span></summary>
+        <p>Métaux de base, aciers, alliages, ainsi que les produits semi-finis et composants qui en dérivent. Indiquez votre matière dans le formulaire pour vérifier l'éligibilité.</p>
+      </details>
+      <details>
+        <summary>Comment est calculée la prime ? <span class="pm">+</span></summary>
+        <p>La prime est un pourcentage de la valeur à protéger, déterminé selon le métal concerné, la durée de votre engagement et la volatilité du marché au moment de la souscription. Elle est connue et payée d'avance.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="logo">
+        <span class="logo-mark">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="1" y="1" width="28" height="28" rx="3" stroke="#EAE6DC" stroke-width="2" opacity=".6"/>
+            <path d="M7 20 L13 11 L17 17 L23 8" stroke="#D98A5E" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="23" cy="8" r="2.4" fill="#D98A5E"/>
+          </svg>
+        </span>
+        Astrela
+      </div>
+      <a href="#simuler" class="btn btn-primary">Simuler ma couverture <span class="btn-arrow">→</span></a>
+    </div>
+    <p class="disclaimer">Les informations présentées sur cette page sont fournies à titre indicatif et ne constituent ni un conseil en investissement, ni une sollicitation d'instrument financier. Les exemples de prime et les fourchettes mentionnés sont illustratifs et non contractuels.</p>
+    <p class="cr">© 2026 Astrela. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+const valeurInput = document.getElementById('valeur');
+const est = document.getElementById('estimate');
+const estVal = document.getElementById('estimateVal');
+const fmt = n => new Intl.NumberFormat('fr-FR').format(Math.round(n));
+
+valeurInput.addEventListener('input', () => {
+  const v = parseFloat(valeurInput.value);
+  if (v && v > 0) {
+    estVal.textContent = '≈ ' + fmt(v * 0.02) + ' € à ' + fmt(v * 0.04) + ' €';
+    est.classList.add('show');
+  } else {
+    est.classList.remove('show');
+  }
+});
+
+const form = document.getElementById('leadForm');
+const success = document.getElementById('formSuccess');
+const errorBox = document.getElementById('formError');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Envoi en cours…';
+  errorBox.classList.remove('show');
+  const data = {
+    nom: form.nom.value,
+    entreprise: form.entreprise.value,
+    email: form.email.value,
+    secteur: form.secteur.value,
+    matiere: form.matiere.value,
+    valeur: form.valeur.value
+  };
+  try {
+    const res = await fetch('https://formspree.io/f/xnjynkqw', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      errorBox.classList.remove('show');
+      success.classList.add('show');
+    } else {
+      throw new Error('Formspree returned ' + res.status);
+    }
+  } catch (err) {
+    console.error(err);
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Tester mon éligibilité <span class="btn-arrow">→</span>';
+    errorBox.classList.add('show');
+  }
+});
+</script>
 </body>
 </html>
